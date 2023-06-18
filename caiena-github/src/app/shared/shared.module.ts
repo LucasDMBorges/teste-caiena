@@ -7,16 +7,17 @@ import { CardPerfilComponent } from './components/card-perfil/card-perfil.compon
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [CabecalhoComponent, RodapeComponent, CardPerfilComponent, SnackBarComponent],
+  declarations: [CabecalhoComponent, RodapeComponent, CardPerfilComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     MatCardModule,
     MatListModule,
     MatIconModule,
+    MatSnackBarModule,
   ],
   exports: [CabecalhoComponent, RodapeComponent, CardPerfilComponent],
 })
