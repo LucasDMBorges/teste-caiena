@@ -10,7 +10,7 @@ export class UsersService {
   constructor(private htttp: HttpClient) {}
 
   getUsers(): Observable<any> {
-    const parametros = new HttpParams().append('per_page', '20');
+    const parametros = new HttpParams().append('per_page', '100');
     return this.htttp.get<any>(environment.USERS_API, { params: parametros });
   }
 
