@@ -1,0 +1,31 @@
+<section class="container">
+  <mat-card>
+    <mat-card-header class="header">
+      <mat-card-title>Comece por aqui:</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="form">
+        <mat-form-field class="input-pesquisa">
+          <mat-label>Digite o nome do usuário</mat-label>
+          <input
+            formControlName="nome"
+            matInput
+            ngModel
+            name="nome"
+            type="text"
+          />
+          <button matSuffix mat-icon-button class="button" (click)="getUsers()">
+            <mat-icon class="icon">search</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+      <app-card-perfil *ngIf="hasUser" [user]="user"></app-card-perfil>
+      <div class="footer">
+        <p>
+          Não encontrou o que buscava? Confira esses
+          <strong (click)="redirect()" class="button">resultados</strong>
+        </p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>
