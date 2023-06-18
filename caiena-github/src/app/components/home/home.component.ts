@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { User } from 'src/app/shared/models/user.model';
 import { UsersService } from 'src/app/shared/services/users.service';
 
@@ -25,7 +26,8 @@ export class HomeComponent {
   constructor(
     private fb: FormBuilder,
     private users: UsersService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   getUsers() {
@@ -53,7 +55,7 @@ export class HomeComponent {
     this.snackBar.open(message, action);
   }
 
-  redirect() {
-    console.log('chamou');
+  goToTable() {
+    this.router.navigate(['/table']);
   }
 }
