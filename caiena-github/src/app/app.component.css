@@ -3,3 +3,9 @@ main {
   background-size: cover;
   min-height: 65vh;
 }
+
+@media (max-width: 576px) {
+  main{
+    padding-top: 2rem;
+  }
+}
