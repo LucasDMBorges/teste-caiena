@@ -1,11 +1,41 @@
-<header class="cabecalho">
-  <div class="logo">
-    <img src="../../../assets/svg/logo.svg" alt="Logo Caiena" />
-    <p>Busque por usuários do Github.</p>
-  </div>
-  <img
-    class="imagem"
-    src="../../../assets/svg/github-logo.svg"
-    alt="Logo Github"
-  />
-</header>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>Dashboard</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item (click)="goTo('/home')">Inicio</a>
+      <a mat-list-item (click)="goTo('/table')">Tabela</a>
+      <a mat-list-item (click)="goTo('/thanks')">Agradecimento</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="cabecalho">
+      <button
+        color="primary"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="logo">
+        <img src="../../../assets/svg/logo.svg" alt="Logo Caiena" />
+        <p>Busque por usuários do Github.</p>
+      </div>
+      <img
+        class="imagem"
+        src="../../../assets/svg/github-logo.svg"
+        alt="Logo Github"
+      />
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

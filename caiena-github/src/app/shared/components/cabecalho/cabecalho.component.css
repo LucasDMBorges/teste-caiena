@@ -1,14 +1,37 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 15%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
 .cabecalho {
   background-color: black;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: fit-content;
 }
 
 .cabecalho .logo {
   width: 60%;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
 }
 
 .cabecalho .logo img {
@@ -28,11 +51,11 @@
 }
 
 @media (max-width: 576px) {
-  .cabecalho .logo {
-    padding: 1rem;
+  .cabecalho .logo img {
+    width: 90%;
   }
   .cabecalho p {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
 
