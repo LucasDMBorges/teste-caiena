@@ -4,7 +4,16 @@
   margin-right: auto;
   padding-top: 1rem;
 }
-.container .group-title {
+.container .header-title {
   margin-left: 1rem;
   font-size: large;
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    width: 80%;
+  }
+  .header-title img {
+    display: none;
+  }
 }

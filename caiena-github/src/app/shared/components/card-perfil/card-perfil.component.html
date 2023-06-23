@@ -1,6 +1,6 @@
 <mat-card class="container">
   <mat-card-header>
-    <mat-card-title-group class="group-title">
+    <mat-card-title-group class="header-title">
       <mat-card-title>{{ user.name }}</mat-card-title>
       <mat-card-subtitle
         >{{ user.type }} <br />
@@ -26,10 +26,9 @@
         <button
         matSuffix
         mat-icon-button
-        class="button"
         (click)="redirectGithub(user.html_url)"
       >
-        <mat-icon class="icon">explore</mat-icon>
+        <mat-icon>explore</mat-icon>
       </button>
       </mat-list-item>      
     </mat-list>
