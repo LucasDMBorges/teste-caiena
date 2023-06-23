@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { debounceTime } from 'rxjs';
 import { User } from 'src/app/shared/models/user.model';
 import { UsersService } from 'src/app/shared/services/users.service';
 
@@ -34,21 +35,20 @@ export class HomeComponent {
     const nome = this.form.controls.nome.value;
     this.hasUser = false;
     this.hasSearch = true;
-    this.users.getUsersByLogin(nome).subscribe(
-      (res) => {
-        this.user = res as User;
-        setTimeout(() => {
+    this.users
+      .getUsersByLogin(nome)
+      .pipe(debounceTime(1000))
+      .subscribe(
+        (res) => {
+          this.user = res as User;
           this.hasSearch = false;
           this.hasUser = true;
-        }, 1000);
-      },
-      (error) => {
-        setTimeout(() => {
+        },
+        (error) => {
           this.hasSearch = false;
           this.openSnackBar(error.error.message, 'ok');
-        }, 1000);
-      }
-    );
+        }
+      );
   }
 
   openSnackBar(message: string, action: string) {
